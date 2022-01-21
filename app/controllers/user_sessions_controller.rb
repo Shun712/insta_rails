@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
-  def new
-  end
+  # 改行の代わりにセミコロン(;)を使用することも可能
+  def new; end
 
   def create
     @user = login(params[:email], params[:password])
