@@ -1,5 +1,7 @@
 {
   "name": "insta_rails",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap-material-design": "4.1.3"
+  }
 }
