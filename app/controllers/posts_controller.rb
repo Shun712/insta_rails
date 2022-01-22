@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :required_login, only: %i[new create edit update destroy]
+  before_action :require_login, only: %i[new create edit update destroy]
   def index
     # N + 1問題の対応
     @posts = Post.all.includes(:user).order(created_at: :desc)
