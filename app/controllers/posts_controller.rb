@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :required_login, only: %i[new create edit update destroy]
   def index
-    @posts = Post.all
+    # N + 1問題の対応
+    @posts = Post.all.includes(:user)
   end
 
   def new

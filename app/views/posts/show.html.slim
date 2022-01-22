@@ -10,7 +10,7 @@
       .d-flex.align-items-center
         = image_tag 'profile-placeholder.png', size: '40x40', class: 'rouded-circle mr-1'
         = @post.user.username
-        - if currnet_user&.own(@post)
+        - if currnet_user&.own?(@post)
           = link_to edit_post_path(@post), class: 'ml-auto' do
             = icon 'far', 'edit', class: 'fa-lg'
     / horizontalrule（水平方向の罫線）
