@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :required_login, only: %i[new create edit update delete]
+  before_action :required_login, only: %i[new create edit update destroy]
   def index
     @posts = Post.all
   end
@@ -32,6 +32,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+  end
+
+  def destroy
+    @post = current_user.posts.find(params[:id])
+    @post.destroy!
+    redirect_to posts_path
   end
 
   private
