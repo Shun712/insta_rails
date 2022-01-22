@@ -24,4 +24,9 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   has_many :posts, dependent: :destroy
+
+  # 例えば、current_user.id == post.user_idで判定する。
+  def own(object)
+    id == object.user_id
+  end
 end
