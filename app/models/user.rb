@@ -26,7 +26,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
 
   # 例えば、current_user.id == post.user_idで判定する。
-  def own(object)
+  def own?(object)
     id == object.user_id
   end
 end
