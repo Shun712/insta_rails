@@ -29,3 +29,6 @@
 
 # アップロードファイルをgit管理の対象外にする
 /public/uploads
+
+# redis系のファイルを追記(redisを起動すると生成されてしまうため)
+dump.rdb
