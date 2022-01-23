@@ -21,6 +21,7 @@ module InstaRails
       g.skip_routes true
       g.assets false
       g.helper false
+      g.test_framework false # testファイルを生成しない
     end
 
     config.time_zone = 'Tokyo'
