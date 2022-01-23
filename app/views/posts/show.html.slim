@@ -9,7 +9,7 @@
   .image-info-box
     .profile-box.p-3
       .d-flex.align-items-center
-        = image_tag 'profile-placeholder.png', size: '40x40', class: 'rouded-circle mr-1'
+        = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
         = @post.user.username
         - if current_user&.own?(@post)
           .ml-auto
@@ -23,26 +23,26 @@
       / 投稿の本文
       .row.no-gutters
         .col-2
-          = image_tag 'profile-placeholder.png', size: '40x40', class: 'rouded-circle'
+          = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle'
         .col-10
           / 与えられた文字列を改行などして整形するメソッド
           = simple_format(@post.body)
-    hr
-    / コメント一覧
-    .row.no-gutters
-      .col-2
-        = image_tag 'profile-placeholder.png', size: '40x40', class: 'rouded-circle'
-      .col-10
-        | ダミーコメントダミーコメントダミーコメント
-    hr
-    .row.no-gutters
-      .col-2
-        = image_tag 'profile-placeholder.png', size: '40x40', class: 'rouded-circle'
-      .col-10
-        | ダミーコメントダミーコメントダミーコメント
-    hr.m-0
-      .post-comment.p-3
-        form.form-inline.mb-0
-          input type="text" class="form-control input-comment-body" placeholder="コメント"
-          button type="submit" class="btn btn-primary btn-raised"
-            | 投稿
+      hr
+      / コメント一覧
+      .row.no-gutters
+        .col-2
+          = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle'
+        .col-10
+          | ダミーコメントダミーコメントダミーコメント
+      hr
+      .row.no-gutters
+        .col-2
+          = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle'
+        .col-10
+          | ダミーコメントダミーコメントダミーコメント
+      hr.m-0
+        .post-comment.p-3
+          form.form-inline.mb-0
+            input type="text" class="form-control input-comment-body" placeholder="コメント"
+            button type="submit" class="btn btn-primary btn-raised"
+              | 投稿
