@@ -1,8 +1,36 @@
 class PostsController < ApplicationController
+  # require_loginは、sorceryのメソッド
   before_action :require_login, only: %i[new create edit update destroy]
   def index
     # N + 1問題の対応
-    @posts = Post.all.includes(:user).order(created_at: :desc)
+    # Rendering posts/index.html.slim within layouts/application
+    # Post Load (0.4ms)  SELECT  `posts`.* FROM `posts` ORDER BY `posts`.`created_at` DESC LIMIT 5 OFFSET 0
+    # ↳ app/views/posts/index.html.slim:4
+    # User Load (0.4ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (10, 9, 8, 7, 6)
+    # ↳ app/views/posts/index.html.slim:4
+    # User Load (0.2ms)  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 11 LIMIT 1
+    # ↳ app/views/posts/_post.html.slim:6
+    # Rendered collection of posts/_post.html.slim [5 times] (7.4ms)
+    # (0.2ms)  SELECT COUNT(*) FROM `posts`
+    # ↳ app/views/posts/index.html.slim:5
+
+    # includesメソッドなし
+    # Rendering posts/index.html.slim within layouts/application
+    # Post Load (1.4ms)  SELECT  `posts`.* FROM `posts` ORDER BY `posts`.`created_at` DESC LIMIT 5 OFFSET 0
+    # ↳ app/views/posts/index.html.slim:4
+    # User Load (0.2ms)  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1
+    # ↳ app/views/posts/_post.html.slim:5
+    # User Load (0.2ms)  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 11 LIMIT 1
+    # ↳ app/views/posts/_post.html.slim:6
+    # User Load (0.2ms)  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 9 LIMIT 1
+    # ↳ app/views/posts/_post.html.slim:5
+    # User Load (0.2ms)  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+    # ↳ app/views/posts/_post.html.slim:5
+    # User Load (0.2ms)  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+    # ↳ app/views/posts/_post.html.slim:5
+    # User Load (0.2ms)  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1
+    # ↳ app/views/posts/_post.html.slim:5
+    @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
