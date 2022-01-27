@@ -25,6 +25,8 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
+    # commentをcreateする場合、postへの紐付けが必要になる。
+    # userへの紐付けはcurrent_userによって、(user_id: current_user.id)となっている。
     params.require(:comment).permit(:body).merge(post_id: params[:post_id])
   end
 
