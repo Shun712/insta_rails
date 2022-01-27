@@ -17,6 +17,7 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
+
 class Post < ApplicationRecord
   belongs_to :user
   mount_uploaders :images, PostImageUploader
@@ -24,4 +25,6 @@ class Post < ApplicationRecord
 
   validates :images, presence: true
   validates :body, presence: true, length: { maximum: 1000 }
+
+  has_many :comments, dependent: :destroy
 end
