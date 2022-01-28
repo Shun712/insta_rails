@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # これでBootstrapに対応した success info warning danger 4つのキーが使用できる
   add_flash_types :success, :info, :warning, :danger
 
-  def not_autheticated
+  def not_authenticated
     redirect_to login_path, warning: 'ログインしてください'
   end
 end

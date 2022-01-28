@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :posts, shallow: true do
     resources :comments
   end
+  # ネストさせていない。
+  resources :likes, only: %i[create destroy]
 end
