@@ -28,6 +28,6 @@ class Post < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  # 
+  # postにいいねしたユーザーを直接アソシエーションで取得することができる
   has_many :like_users, through: :likes, source: :user
 end

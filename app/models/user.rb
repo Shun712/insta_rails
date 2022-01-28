@@ -26,7 +26,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  # 
+  # ユーザーがいいねしたツイートを直接アソシエーションで取得することができるようカラムを設定
+  # [【初心者向け】丁寧すぎるRails『アソシエーション』チュートリアル【幾ら何でも】【完璧にわかる - qiita](https://qiita.com/kazukimatsumoto/items/14bdff681ec5ddac26d1#has-many-through)
   has_many :like_posts, through: :likes, source: :post
 
   # 例えば、current_user.id == post.user_idで判定する。
@@ -34,15 +35,18 @@ class User < ApplicationRecord
     id == object.user_id
   end
 
+  # 「いいね」したpostをlike_postsへpush
   def like(post)
     like_posts << post
   end
 
+  # 「いいね」したpostをlike_postsから削除
   def unlike(post)
     # deleteよりdestroyの方がコールバックが動くから安全
     like_posts.destroy(post)
   end
 
+  # userがすでにそのpostに「いいね！」しているかを判別
   def like?(post)
     like_posts.include?(post)
   end

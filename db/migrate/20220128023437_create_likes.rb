@@ -5,6 +5,7 @@ class CreateLikes < ActiveRecord::Migration[5.2]
       t.references :post, foreign_key: true
 
       t.timestamps
+      # この設定で、「いいね」が2回以上保存されるのを制限
       t.index [:user_id, :post_id], unique: true
     end
   end
