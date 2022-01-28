@@ -1,2 +1,5 @@
+/ escape_javascriptはjのエイリアスメソッド
+/ #modal-containerとidが付与されている箇所をhtml()で差し替えを行う
 | $("#modal-container").html("#{escape_javascript(render 'modal_form', comment: @comment)}");
+/ #comment-edit-modalにおいてモーダルを手動で切り替える(Bootstrap)
 | $("#comment-edit-modal").modal('show');

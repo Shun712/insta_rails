@@ -21,6 +21,7 @@ class CommentsController < ApplicationController
   private
 
   def set_comment
+    # params[:id]はcommentのid(postのidがなくても特定できる)
     @comment = current_user.comments.find(params[:id])
   end
 

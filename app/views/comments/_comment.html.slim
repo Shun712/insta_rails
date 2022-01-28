@@ -8,6 +8,7 @@ div id="comment-#{comment.id}"
       = comment.body
     .col-1
       - if current_user&.own?(comment)
+        / remote: trueによってリクエストがhtml形式ではなくjs形式になる。つまりページ遷移を行わなくなる。
         = link_to comment_path(comment), class: 'mr-3', method: :delete, data: {confirm: '本当に削除しますか?'}, remote: :true do
           = icon 'far', 'trash-alt', class: 'fa-sm'
         = link_to edit_comment_path(comment), remote: true do
