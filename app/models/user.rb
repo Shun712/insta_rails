@@ -25,9 +25,25 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  # 
+  has_many :like_posts, through: :likes, source: :post
 
   # 例えば、current_user.id == post.user_idで判定する。
   def own?(object)
     id == object.user_id
+  end
+
+  def like(post)
+    like_posts << post
+  end
+
+  def unlike(post)
+    # deleteよりdestroyの方がコールバックが動くから安全
+    like_posts.destroy(post)
+  end
+
+  def like?(post)
+    like_posts.include?(post)
   end
 end
