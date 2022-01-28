@@ -1,0 +1,8 @@
+- if @comment.errors.present?
+  / alert（JS）によりポップアップウインドウを表示する
+  / エラーメッセージを全て出力し、それぞれ改行して表示する
+  | alert("#{@comment.errors.full_messages.join('\n')}");
+- else
+  / エラーがない場合、#comment-1などのidが付与されている部分をJSで置き換える
+  | $("#comment-#{@comment.id}").html("#{j render('comments/comment', comment: @comment)}");
+  | $("#comment-edit-modal").modal('hide');

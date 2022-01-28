@@ -1,0 +1,12 @@
+.modal#comment-edit-modal
+  / Bootstrapでモーダルフォームの表示制御をするには、表示したい部分を指定のクラス指定したDivで囲う
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5.modal-title コメント編集
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          / モーダル表示したときに周りが暗くなるようaria-hidden属性をtrueに設定
+          span aria-hidden="true"  ×
+      .modal-body
+        / createする場合は、postのidが必要であるが、edit、update、destroyは不要
+        = render 'form', post: nil, comment: comment

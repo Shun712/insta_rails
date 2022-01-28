@@ -1,0 +1,12 @@
+- if @comment.errors.present?
+  / JSのコード内にRubyのロジックを書く場合、#{ }を使う
+  | alert("#{@comment.errors.full_messages.join('\n')}");
+- else
+  / $('.comments-box')が、id = "comments_box"をターゲットとする記載
+  / j はActionView::Helpers::JavaScriptHelper#escape_javascriptのエイリアスメソッド
+  / 改行コード、シングルクオート、ダブルクオートをJavaScript用にエスケープしてくれるヘルパメソッド（のエイリアス）
+  / $はjQueryで頻出し、DOM構造を読み込んでから発火する。
+  / prepend()で(app/views/comments/_comments.html.slim)内にコメント内容を追加する。
+  | $('.comments-box').prepend("#{j render('comments/comment', comment: @comment)}");
+  / val()でコメント投稿後、入力欄を空にする。
+  | $('.input-comment-body').val('');
