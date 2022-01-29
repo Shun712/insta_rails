@@ -1,0 +1,12 @@
+.container
+  .row
+    / レイアウトを確認
+    .row-md-6.col-12.offset-md-3.mb-3
+      .card
+        .card-body
+          / <% @users.each do |user| %>
+          /  <%= render partial: 'user', user: user %>
+          / <% end %>と同じ
+          = render @users
+    .row-md-6.col-12.offset-md-3
+      = paginate @users

@@ -1,0 +1,3 @@
+/ 該当ユーザーのidをfollowed_idの引数とする
+= link_to relationship_path(current_user.active_relationships.find_by(followed_id: user.id)), class: 'btn btn-outline-success brn-raised', method: :delete, remote: true do
+  | アンフォロー

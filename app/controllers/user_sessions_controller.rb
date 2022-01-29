@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+  before_action :check_logged_in, only: %i[new create]
+
   # 改行の代わりにセミコロン(;)を使用することも可能
   def new; end
 
@@ -16,5 +18,11 @@ class UserSessionsController < ApplicationController
   def destroy
     logout
     redirect_to login_path, success: 'ログアウトしました'
+  end
+
+  private
+
+  def check_logged_in
+    redirect_to posts_path if current_user.present?
   end
 end

@@ -30,7 +30,13 @@ class PostsController < ApplicationController
     # ↳ app/views/posts/_post.html.slim:5
     # User Load (0.2ms)  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1
     # ↳ app/views/posts/_post.html.slim:5
-    @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page])
+    @posts = if current_user
+               current_user.feed.includes(:user).page(params[:page]).order(created_at: :desc)
+             else
+               Post.all.includes(:user).page(params[:page]).order(created_at: :desc)
+             end
+    # scopeに切り出すことを常に意識する。
+    @users = User.recent(5)
   end
 
   def new
