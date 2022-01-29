@@ -9,6 +9,7 @@ class RelationshipsController < ApplicationController
 
   def destroy
     # Relationshipはfollowedとfollowerが一意なのでパラメーターからidを取得
+    # followedは、belongs_toでfollowedを関連付けしているので、.followedでユーザーを取ってこれる。
     @user = Relationship.find(params[:id]).followed
     current_user.unfollow(@user)
   end

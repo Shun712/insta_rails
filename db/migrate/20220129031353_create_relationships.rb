@@ -6,8 +6,10 @@ class CreateRelationships < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    # フォローするユーザー・フォローされるユーザーのidについて、indexを貼る（パフォーマンス向上のため）
     add_index :relationships, :follower_id
     add_index :relationships, :followed_id
+    # フォローやアンフォローができないよう、ユニーク制約をつける
     add_index :relationships, [:follower_id, :followed_id], unique: true
   end
 end

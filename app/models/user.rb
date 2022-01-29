@@ -30,15 +30,15 @@ class User < ApplicationRecord
   has_many :active_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
   # foreign_keyで定義することで、親モデル(followed)と関連付けられる。
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
-  # フォローされる側(follower)のユーザーを中間テーブル(active_relationships)を介して取得することを「following」と定義
+  # フォローされる側(followed)のユーザーを中間テーブル(active_relationships)を介して取得することを「following」と定義
   has_many :following, through: :active_relationships, source: :followed
+  # フォローする側(follower)のユーザーを中間テーブル(passive_relationships)を介して取得することを「followers」と定義
   has_many :followers, through: :passive_relationships, source: :follower
   # ユーザーがいいねしたツイートを直接アソシエーションで取得することができるようカラムを設定
   # [【初心者向け】丁寧すぎるRails『アソシエーション』チュートリアル【幾ら何でも】【完璧にわかる - qiita](https://qiita.com/kazukimatsumoto/items/14bdff681ec5ddac26d1#has-many-through)
   has_many :like_posts, through: :likes, source: :post
 
   # ->{ }による方法(lambdaによって作成されたProcオブジェクトと同じ性質をもつオブジェクトを作成する。）
-  # MySQLのネイティブ関数RAND()を使用
   scope :recent, -> (count) { order(created_at: :desc).limit(count) }
 
   # 例えば、current_user.id == post.user_idで判定する。
@@ -75,12 +75,17 @@ class User < ApplicationRecord
   end
 
   def feed
+    # 自分と自分がフォローしているユーザーのidを取得する
     # following_idsメソッドは、そのコレクションに含まれるオブジェクトのidを配列にしたものを返す
     # Post.where(user_id: self.following_ids.<<(self.id))と同じ
     # つまり、Post.where(user_id: current_user.following_ids << current_user.id)
-    # モデルで書く、インスタンスメソッドは self が省略される
+    # モデルで書くインスタンスメソッドは、 self が省略される
     # <<もメソッドであり、idは引数
     # [問題です！ ①と②が同じだって分かりますか？（クラス・インスタンス・メソッド・引数を実践で理解しよう！） - qiita](https://qiita.com/miketa_webprgr/items/361d339d2739792457ab)
+    # rubyではメソッドの中で、そのメソッドが属しているインスタンスをselfで参照でき、省略可能
+    # メソッド中でレシーバを省略してメソッド呼び出しを行った場合は、暗黙的にselfがレシーバになる
+    # ただし、セッターメソッドを呼ぶ時はselfを省略出来ない。
+    # [rubyでselfを省略できる時、できない時 - qiita](https://qiita.com/akira-hamada/items/4132d2fda7e420073ab7)
     Post.where(user_id: following_ids << id)
   end
 end
