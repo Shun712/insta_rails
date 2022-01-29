@@ -1,6 +1,7 @@
 .container
   .row
     .col-md-8.col-12
+      / フィード表示のロジック変更
       - if @posts.present?
         = render @posts
       - else
