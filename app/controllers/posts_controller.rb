@@ -35,6 +35,7 @@ class PostsController < ApplicationController
              else
                Post.all.includes(:user).page(params[:page]).order(created_at: :desc)
              end
+    # scopeに切り出すことを常に意識する。
     @users = User.recent(5)
   end
 
