@@ -37,7 +37,7 @@ class User < ApplicationRecord
 
   # ->{ }による方法(lambdaによって作成されたProcオブジェクトと同じ性質をもつオブジェクトを作成する。）
   # MySQLのネイティブ関数RAND()を使用
-  scope :randoms, -> (count) { order('RAND()').limit(count) }
+  scope :recent, -> (count) { order(created_at: :desc).limit(count) }
 
   # 例えば、current_user.id == post.user_idで判定する。
   def own?(object)

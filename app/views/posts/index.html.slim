@@ -17,6 +17,8 @@
           .card-header
             | ユーザー
           .card-body
-            = render @random_users
+            / 部分テンプレートを利用
+            / postディレクトリでも使える
+            = render @users
           .card-footer
             = link_to 'すべて見る', users_path
