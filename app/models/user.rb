@@ -37,7 +37,7 @@ class User < ApplicationRecord
 
   # ->{ }による方法(lambdaによって作成されたProcオブジェクトと同じ性質をもつオブジェクトを作成する。）
   # MySQLのネイティブ関数RAND()を使用
-  scope :randoms, -> (count) { order("RAND()").limit(count) }
+  scope :randoms, -> (count) { order('RAND()').limit(count) }
 
   # 例えば、current_user.id == post.user_idで判定する。
   def own?(object)
@@ -70,5 +70,15 @@ class User < ApplicationRecord
 
   def follow?(other_user)
     following.include?(other_user)
+  end
+
+  def feed
+    # following_idsメソッドは、そのコレクションに含まれるオブジェクトのidを配列にしたものを返す
+    # Post.where(user_id: self.following_ids.<<(self.id))と同じ
+    # つまり、Post.where(user_id: current_user.following_ids << current_user.id)
+    # モデルで書く、インスタンスメソッドは self が省略される
+    # <<もメソッドであり、idは引数
+    # [問題です！ ①と②が同じだって分かりますか？（クラス・インスタンス・メソッド・引数を実践で理解しよう！） - qiita](https://qiita.com/miketa_webprgr/items/361d339d2739792457ab)
+    Post.where(user_id: following_ids << id)
   end
 end
