@@ -30,6 +30,10 @@ class User < ApplicationRecord
   # [【初心者向け】丁寧すぎるRails『アソシエーション』チュートリアル【幾ら何でも】【完璧にわかる - qiita](https://qiita.com/kazukimatsumoto/items/14bdff681ec5ddac26d1#has-many-through)
   has_many :like_posts, through: :likes, source: :post
 
+  # ->{ }による方法(lambdaによって作成されたProcオブジェクトと同じ性質をもつオブジェクトを作成する。）
+  # MySQLのネイティブ関数RAND()を使用
+  scope :randoms, -> (count) { order("RAND()").limit(count) }
+
   # 例えば、current_user.id == post.user_idで判定する。
   def own?(object)
     id == object.user_id

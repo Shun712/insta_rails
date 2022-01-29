@@ -31,6 +31,7 @@ class PostsController < ApplicationController
     # User Load (0.2ms)  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1
     # ↳ app/views/posts/_post.html.slim:5
     @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page])
+    @random_users = User.randoms(5)
   end
 
   def new
