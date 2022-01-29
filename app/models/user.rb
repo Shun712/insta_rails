@@ -26,6 +26,11 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :active_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+  has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
+  # フォローされる側(follower)のユーザーを中間テーブル(active_relationships)を介して取得することを「following」と定義
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
   # ユーザーがいいねしたツイートを直接アソシエーションで取得することができるようカラムを設定
   # [【初心者向け】丁寧すぎるRails『アソシエーション』チュートリアル【幾ら何でも】【完璧にわかる - qiita](https://qiita.com/kazukimatsumoto/items/14bdff681ec5ddac26d1#has-many-through)
   has_many :like_posts, through: :likes, source: :post
@@ -53,5 +58,17 @@ class User < ApplicationRecord
   # userがすでにそのpostに「いいね！」しているかを判別
   def like?(post)
     like_posts.include?(post)
+  end
+
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  def follow?(other_user)
+    following.include?(other_user)
   end
 end
