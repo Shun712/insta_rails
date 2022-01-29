@@ -31,9 +31,9 @@ class PostsController < ApplicationController
     # User Load (0.2ms)  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1
     # ↳ app/views/posts/_post.html.slim:5
     @posts = if current_user
-               current_user.feed.includes(:user).page(params[:page])
+               current_user.feed.includes(:user).page(params[:page]).order(created_at: :desc)
              else
-               Post.all.includes(:user).page(params[:page])
+               Post.all.includes(:user).page(params[:page]).order(created_at: :desc)
              end
     @random_users = User.randoms(5)
   end
