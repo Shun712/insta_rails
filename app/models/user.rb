@@ -27,8 +27,14 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   # foreign_keyで定義することで、親モデル(follower)と関連付けられる。
+  # foreign_keyでフォローする側(follower)からフォロー関係を関連付けている。
+  # この段階では、自分が誰をフォローしているかまでしかわからない(active_relationshipsテーブルのレコードを取得しているにすぎない)。
   has_many :active_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+  # これでようやくフォローされる側(followed)のユーザーを中間テーブル(active_relationships)を介して取得することを「following」と定義
+  has_many :following, through: :active_relationships, source: :followed
   # foreign_keyで定義することで、親モデル(followed)と関連付けられる。
+  # フォローされる側(followed)からフォロー関係を関連付けている。
+  # この段階では、自分が誰からフォローされているかまでしかわからない(passive_relationshipsテーブルのレコードを取得しているにすぎない)。
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   # フォローされる側(followed)のユーザーを中間テーブル(active_relationships)を介して取得することを「following」と定義
   has_many :following, through: :active_relationships, source: :followed
