@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
   resources :users, only: %i[index new create show]
   resources :posts, shallow: true do
+    # URLにpostのidはつかない
+    collection do
+      get :search
+    end
     resources :comments
   end
   # ネストさせていない。
