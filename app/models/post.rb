@@ -30,4 +30,5 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   # postにいいねしたユーザーを直接アソシエーションで取得することができる
   has_many :like_users, through: :likes, source: :user
+  scope :body_contain, ->(word) { where('body LIKE ?', "%#{word}%" )}
 end
