@@ -104,6 +104,7 @@ img {
   position: relative;
   display: block;
 
+  // 疑似要素と呼ばれ、「HTMLには書かれていない要素もどきをCSSで作ることができる」
   &::before {
     content: "";
     display: block;
@@ -115,6 +116,7 @@ img {
     height: 100%;
     position: absolute;
     top: 0;
+    // 中央からトリミングしてくれる
     object-fit: cover;
   }
 }
