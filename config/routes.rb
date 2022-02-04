@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[index new create show]
   resources :posts, shallow: true do
     # URLにpostのidはつかない
+    # リソース全体(posts)に対して、アクションを追加(生成されるURL:/posts/search)
     collection do
       get :search
     end

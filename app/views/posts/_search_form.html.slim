@@ -1,3 +1,8 @@
+/ modelオプションは、モデルクラスのインスタンスを指定する
+/ urlオプションは、指定したpathに対してGETメソッドやPOSTメソッドを行う
+/ scopeオプションは、scopeオブジェクトに渡した値がname値のプレフィックスになっている
+/ q[:body], q[:comment_body], q[:username]
+/ 検索ワードを入力したら、@search_form = q[:body]をsearch_posts_pathに対してGETメソッドを行う
 = form_with model: search_form, url: search_posts_path, scope: :q, class: 'form-inline my-2 my-lg-0 mr-auto', method: :get, local: true do |f|
   = f.search_field :body, class: 'form-control mr-sm-2', placeholder: '本文'
   = f.search_field :comment_body, class: 'form-control mr-sm-2', placeholder: 'コメント'
