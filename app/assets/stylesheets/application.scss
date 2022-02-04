@@ -98,3 +98,25 @@ img {
 .pagination {
   justify-content: center;
 }
+
+.thumbs {
+  width: 100%;
+  position: relative;
+  display: block;
+
+  // 疑似要素と呼ばれ、「HTMLには書かれていない要素もどきをCSSで作ることができる」
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    // 中央からトリミングしてくれる
+    object-fit: cover;
+  }
+}

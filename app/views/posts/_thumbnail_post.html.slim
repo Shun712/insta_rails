@@ -1,0 +1,4 @@
+.col-md-4.mb-3
+  = link_to post_path(thumbnail_post), class: 'thumbs' do
+    / carrierwaveを導入しているため、urlメソッドが使える
+    = image_tag thumbnail_post.images.first.url
