@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   # ネストさせていない。
   resources :likes, only: %i[create destroy]
   resources :relationships, only: %i[create destroy]
+  namespace :mypage do
+    resources :account, only: %i[edit update]
+  end
 end
