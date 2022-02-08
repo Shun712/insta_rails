@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   # 「avatarカラム」と「AvatarUploaderクラス」を紐づけ
   # これでアバター画像をアップロードする際に、AvatarUploaderクラスの設定を利用できる
-  mount_uploaders :avatar, AvatarUploader
+  mount_uploader :avatar, AvatarUploader
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }

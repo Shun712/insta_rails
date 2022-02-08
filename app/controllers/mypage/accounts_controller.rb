@@ -1,4 +1,4 @@
-class mypage::AccountController < Mypage::BaseController
+class Mypage::AccountsController < Mypage::BaseController
   def edit
     @user = User.find(current_user.id)
   end
@@ -6,7 +6,7 @@ class mypage::AccountController < Mypage::BaseController
   def update
     @user = User.find(current_user.id)
     if @user.update(account_params)
-      redirect_to edit_upage_account_path, success: 'プロフィールを更新しました'
+      redirect_to edit_mypage_account_path, success: 'プロフィールを更新しました'
     else
       flash.now[danger] = 'プロフィールの更新に失敗しました'
       render :edit
