@@ -40,13 +40,12 @@ class User < ApplicationRecord
   # フォローされる側(followed)からフォロー関係を関連付けている。
   # この段階では、自分が誰からフォローされているかまでしかわからない(passive_relationshipsテーブルのレコードを取得しているにすぎない)。
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
-  # フォローされる側(followed)のユーザーを中間テーブル(active_relationships)を介して取得することを「following」と定義
-  has_many :following, through: :active_relationships, source: :followed
   # フォローする側(follower)のユーザーを中間テーブル(passive_relationships)を介して取得することを「followers」と定義
   has_many :followers, through: :passive_relationships, source: :follower
   # ユーザーがいいねしたツイートを直接アソシエーションで取得することができるようカラムを設定
   # [【初心者向け】丁寧すぎるRails『アソシエーション』チュートリアル【幾ら何でも】【完璧にわかる - qiita](https://qiita.com/kazukimatsumoto/items/14bdff681ec5ddac26d1#has-many-through)
   has_many :like_posts, through: :likes, source: :post
+  has_many :activities, dependent: :destroy
 
   # ->{ }による方法(lambdaによって作成されたProcオブジェクトと同じ性質をもつオブジェクトを作成する。）
   scope :recent, ->(count) { order(created_at: :desc).limit(count) }
