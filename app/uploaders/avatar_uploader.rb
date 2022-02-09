@@ -14,6 +14,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
+  # 画像が設定されていない場合、デフォルト画像を割り当てる
   def default_url
     'profile-placeholder.png'
   end
