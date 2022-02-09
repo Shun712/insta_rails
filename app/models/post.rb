@@ -30,7 +30,7 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   # postにいいねしたユーザーを直接アソシエーションで取得することができる
   has_many :like_users, through: :likes, source: :user
-  has_one :activity,as: :subject, dependent: :destroy
+  has_one :activity, as: :subject, dependent: :destroy
   # where("カラム名 LIKE ?", "検索したい文字列")であり、?はプレースホルダと呼ばれ､第二引数で指定した値が置き換えられる。
   # SQLインジェクション対策である。
   scope :body_contain, ->(word) { where('posts.body LIKE ?', "%#{word}%") }
