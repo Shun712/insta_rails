@@ -1,0 +1,17 @@
+/ 既読済みか否かによって背景色を変える
+= link_to read_activity_path(activity), class: "dropdown-item border-bottom #{'read' if activity.read?}", method: :patch do
+  = image_tag activity.subject.user.avatar.url, class: 'rounded-circle mr-1', size: '30x30'
+  / objectタグで文書に外部リソースを埋め込む
+  object
+    = link_to activity.subject.user.username, user_path(activity.subject.user)
+  | があなたの
+  object
+    = link_to '投稿', post_path(activity.subject.post)
+  | に
+  object
+    / anchorオプションで指定の位置にページ遷移するにはIDが必要である
+    = link_to 'コメント', post_path(activity.subject.post, anchor: "comment-#{activity.subject.id}")
+  | しました
+  .ml-auto
+    / l(localize)メソッドで時刻表示をフォーマットに応じた表記にする
+    = l activity.created_at, format: :short

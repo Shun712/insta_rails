@@ -11,8 +11,14 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-white
           / font-awesome-sassを導入しなければエラーが起きる！
           = icon 'far', 'image', class: 'fa-lg'
       li.nav-item
-        a.nav-link href="#"
-          = icon 'far', 'heart', class: 'fa-lg'
+        / bootstrapの Single button dropdownを利用
+        / https://getbootstrap.jp/docs/5.0/components/dropdowns/#single-button
+        .dropdown
+          a#dropdownMenuButton.nav-link.position-relative href="#" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true"
+            = icon 'far', 'heart', class: 'fa-lg'
+            = render 'shared/unread_badge'
+          #header-activities.dropdown-menu.dropdown-menu-right.m-0.p-0 aria-labelledby="dropdownMenuButton"
+            = render 'shared/header_activities'
       li.nav-item
         = link_to user_path(current_user), class: 'nav-link' do
           = icon 'far', 'user', class: 'fa-lg'
