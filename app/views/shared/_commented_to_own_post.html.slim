@@ -7,7 +7,7 @@
     = link_to '投稿', post_path(activity.subject.post)
   | に
   object
-    = 'コメント', post_path(activity.subject.post, anchor: "comment-#{activity.subject.id})
+    = link_to 'コメント', post_path(activity.subject.post, anchor: "comment-#{activity.subject.id}")
   | しました
   .ml-auto
     = l activity.created_at, format: :short
