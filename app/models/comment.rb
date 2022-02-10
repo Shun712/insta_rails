@@ -22,15 +22,20 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post
+  # 子モデルのactivityをsubjectとしてポリモーフィック関連
   has_one :activity, as: :subject, dependent: :destroy
 
   validates :body, presence: true, length: { maximum: 1000 }
 
+  # コールバック(after_commit)を利用してコメントした後、private下のメソッドが実行される
   after_create_commit :create_activities
 
   private
 
   def create_activities
+    # subjectカラムにcommentクラスが入る
+    # これにより、subject_typeにCommentが入る
+    # createアクション内のインスタンス変数(@comment)がselfとして省略されている
     Activity.create(subject: self, user: post.user, action_type: :commented_to_own_post)
   end
 end

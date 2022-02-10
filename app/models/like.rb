@@ -22,6 +22,7 @@
 class Like < ApplicationRecord
   belongs_to :user
   belongs_to :post
+  # 子モデルのactivityをsubjectとしてポリモーフィック関連
   has_one :activity, as: :subject, dependent: :destroy
 
   # scope
