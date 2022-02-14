@@ -32,3 +32,8 @@
 
 # redis系のファイルを追記(redisを起動すると生成されてしまうため)
 dump.rdb
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+

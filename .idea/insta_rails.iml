@@ -1012,6 +1012,79 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="launchy (vbundled(2.5.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/launchy-2.5.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/launchy-2.5.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/launchy-2.5.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/launchy-2.5.0/tasks" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/launchy-2.5.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/launchy-2.5.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/launchy-2.5.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/launchy-2.5.0/tasks" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/launchy-2.5.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/launchy-2.5.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/launchy-2.5.0/tasks" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="letter_opener (vbundled(1.7.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener-1.7.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener-1.7.0/spec" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener-1.7.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener-1.7.0/spec" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener-1.7.0/spec" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="letter_opener_web (vbundled(1.4.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/script" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/script" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/letter_opener_web-1.4.1/script" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="listen (vbundled(3.1.5)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
