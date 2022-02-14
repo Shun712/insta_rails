@@ -5,6 +5,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
+    # コメントされたら、メール送信処理される。
+    # コールバックで送信しないようにする(https://techracho.bpsinc.jp/hachi8833/2019_09_12/76762)
+    # withに渡されるキーの値は、メイラーアクションでは単なるparamsになる。
+    # メイラーアクションで`params[:user_from]`や`params[:user_to]`や`params[:comment]`を使えるようになる
     UserMailer.with(user_from: current_user, user_to: @comment.post.user, comment: @comment).comment_post.deliver_later if @comment.save
   end
 

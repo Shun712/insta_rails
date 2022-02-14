@@ -1,4 +1,7 @@
 class UserMailer < ApplicationMailer
+  # メーラーはRailsのコントローラーと似ており、アクションに応じて設定する
+  # mailメソッドが呼び出されると、メール本文が記載されているビューが読み込まれる
+  # インスタンス変数をビューに渡したいので用意する
   def like_post
     @user_from = params[:user_from]
     @user_to = params[:user_to]
