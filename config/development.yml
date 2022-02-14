@@ -1,3 +1,0 @@
-# configのgemで定数を定義する
-default_url_options:
-  host: 'localhost:3000'
