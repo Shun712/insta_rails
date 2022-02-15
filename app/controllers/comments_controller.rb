@@ -10,7 +10,11 @@ class CommentsController < ApplicationController
     # withに渡されるキーの値は、メイラーアクションでは単なるparamsになる。
     # メイラーアクションで`params[:user_from]`や`params[:user_to]`や`params[:comment]`を使えるようになる
     # deliver_laterは非同期処理にする送信
-    UserMailer.with(user_from: current_user, user_to: @comment.post.user, comment: @comment).comment_post.deliver_later if @comment.save
+    if @comment.save && @comment.post.user.notification_on_comment?
+      UserMailer.with(user_from: current_user,
+                      user_to: @comment.post.user,
+                      comment: @comment).comment_post.deliver_later
+    end
   end
 
   def edit; end
