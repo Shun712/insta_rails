@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     # コールバックで送信しないようにする(https://techracho.bpsinc.jp/hachi8833/2019_09_12/76762)
     # withに渡されるキーの値は、メイラーアクションでは単なるparamsになる。
     # メイラーアクションで`params[:user_from]`や`params[:user_to]`や`params[:comment]`を使えるようになる
+    # deliver_laterは非同期処理にする送信
     UserMailer.with(user_from: current_user, user_to: @comment.post.user, comment: @comment).comment_post.deliver_later if @comment.save
   end
 
