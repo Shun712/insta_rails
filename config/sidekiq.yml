@@ -1,3 +1,10 @@
+# Sidekiqは起動時にキューが定義されていなければならないので、このファイルに書き込む
+# $ bundle exec sidekiq -q default -q mailersでも起動できるが、
+# 設定ファイルを用意しておくことで、起動時に読み込んでくれる。
+# $ bundle exec sidekiq -C config/sidekiq.yml -d
+
+# concurrencyとは、一つのSidekiqプロセスで使用するスレッド数
+# Sidekiqではジョブ(ワーカー)ごとに1スレッドを使用している
 :concurrency: 25
 :queues:
   - default

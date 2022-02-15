@@ -30,6 +30,8 @@ module InstaRails
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb.yml}').to_s]
 
+    # ActiveJobのアダプターとしてSidekiqを利用することを宣言(キューイングバックエンドを設定)
+    # バックグラウンド(ジョブ管理)でキューを処理するサーバーとしてSidekiqを指定
     config.active_job.queue_adapter = :sidekiq
   end
 end
