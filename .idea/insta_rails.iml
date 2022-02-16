@@ -1345,6 +1345,27 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="meta-tags (vbundled(2.16.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/meta-tags-2.16.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/meta-tags-2.16.0/sig" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/meta-tags-2.16.0/certs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/meta-tags-2.16.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/meta-tags-2.16.0/sig" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/meta-tags-2.16.0/certs" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/meta-tags-2.16.0/certs" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="method_source (vbundled(1.0.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
