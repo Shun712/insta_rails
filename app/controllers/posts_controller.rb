@@ -89,6 +89,6 @@ class PostsController < ApplicationController
 
   def post_params
     # 複数画像の投稿なので、カラムに配列で保存できるように設定
-    params.require(:post).permit(:body, :images[])
+    params.require(:post).permit(:body, images: [])
   end
 end
