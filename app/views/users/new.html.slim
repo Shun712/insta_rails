@@ -3,7 +3,7 @@
   .login-register-form-inner
     .card.md-3
       / モデルクラスのインスタンス(@user)を指定
-      = form_with model: @user, class: 'card-body', local: true do |f|
+      = form_with model: @user, class: 'card-body', local: true, id: 'signup_form' do |f|
         = render 'shared/error_messages', object: @user
         .form_group
           = f.label :username, class: 'bmd-label-floating'
