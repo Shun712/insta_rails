@@ -63,6 +63,13 @@ RSpec.describe User, type: :model do
       end
     end
 
+    describe 'like?' do
+      it 'いいねをした投稿が含まれること' do
+        user_a.like(post_by_user_b)
+        expect(user_a.like?(post_by_user_b)).to be true
+      end
+    end
+
     describe 'follow' do
       it 'フォローできること' do
         expect { user_a.follow(user_b) }.to change { Relationship.count }.by(1)
