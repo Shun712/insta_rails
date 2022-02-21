@@ -39,3 +39,6 @@ config/environments/*.local.yml
 
 /ngrok
 /ngrok-stable-darwin-amd64.zip
+
+# simplecov
+/coverage/*
