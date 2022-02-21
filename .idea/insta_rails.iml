@@ -210,25 +210,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="archive-zip (vbundled(0.12.0)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/archive-zip-0.12.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/archive-zip-0.12.0/spec" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/archive-zip-0.12.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/archive-zip-0.12.0/spec" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/archive-zip-0.12.0/spec" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="arel (vbundled(9.0.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -459,31 +440,6 @@
         </SOURCES>
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/childprocess-4.1.0/spec" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="chromedriver-helper (vbundled(2.1.1)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/bin" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/concourse" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/bin" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/concourse" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/bin" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/chromedriver-helper-2.1.1/concourse" />
         </excluded>
       </library>
     </orderEntry>
@@ -1111,25 +1067,6 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/image_processing-1.12.1/lib" />
         </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="io-like (vbundled(0.3.1)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/io-like-0.3.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/io-like-0.3.1/spec" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/io-like-0.3.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/io-like-0.3.1/spec" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/io-like-0.3.1/spec" />
-        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -3074,6 +3011,25 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/web-console-3.7.0/lib" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="webdrivers (vbundled(5.0.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-5.0.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-5.0.0/spec" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-5.0.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-5.0.0/spec" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/webdrivers-5.0.0/spec" />
+        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
