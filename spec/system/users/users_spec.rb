@@ -36,4 +36,34 @@ RSpec.describe 'ユーザー登録', type: :system do
       end
     end
   end
+
+  describe 'フォロー' do
+    let!(:login_user) { create(:user) }
+    let!(:other_user) { create(:user) }
+
+    before do
+      login_as login_user
+    end
+
+    it 'フォローできること' do
+      visit posts_path
+      expect {
+        within "#follow-area-#{other_user.id}" do
+          click_link 'フォロー'
+          expect(page).to have_content 'アンフォロー'
+        end
+      }.to change(login_user.following, :count).by(1)
+    end
+
+    it 'フォロー解除できること' do
+      login_user.follow(other_user)
+      visit posts_path
+      expect {
+        within "#follow-area-#{other_user.id}" do
+          click_link 'アンフォロー'
+          expect(page).to have_content 'フォロー'
+        end
+      }.to change(login_user.following, :count).by(-1)
+    end
+  end
 end
