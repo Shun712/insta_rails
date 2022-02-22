@@ -6,6 +6,7 @@ RSpec.describe 'ユーザー登録', type: :system do
     context '入力情報が正しい場合' do
       it 'ログインできること' do
         visit new_user_path
+        # ユーザー名の入力フォームが2箇所あるため、限定する
         within("#signup_form") do
           fill_in 'ユーザー名', with: 'Rails太郎'
           fill_in 'メールアドレス', with: 'rails@example.com'
