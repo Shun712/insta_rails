@@ -18,6 +18,10 @@ require 'simplecov'
 SimpleCov.start 'rails'
 
 RSpec.configure do |config|
+  config.before(:each, type: :system) do
+    # chromeのヘッドレスドライバを使用するよう設定する
+    driven_by :selenium, using: :headless_chrome, screen_size: [1920, 1080]
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
