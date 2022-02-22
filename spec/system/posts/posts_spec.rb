@@ -131,4 +131,35 @@ RSpec.describe 'ポスト', type: :system do
       expect(current_path).to eq post_path(post_by_user)
     end
   end
+
+  describe 'いいね' do
+    let!(:user) { create(:user) }
+    let!(:post) { create(:post) }
+
+    before do
+      login_as user
+      user.follow(post.user)
+    end
+
+    it 'いいねができること' do
+      visit posts_path
+      expect{
+        within "#post-#{post.id}" do
+          find('.like-button').click
+          expect(page).to have_css '.unlike-button'
+        end
+      }.to change(user.like_posts, :count).by(1)
+    end
+
+    it 'いいねを取り消せること' do
+      user.like(post)
+      visit posts_path
+      expect{
+        within "#post-#{post.id}" do
+          find('.unlike-button').click
+          expect(page).to have_css '.like-button'
+        end
+      }.to change(user.like_posts, :count).by(-1)
+    end
+  end
 end
